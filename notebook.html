@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Book</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="src/icon.png" type="image/png">
+</head>
+<body>
+    <div id="sidebar">
+        <button id="menu-toggle">☰</button>
+        <div id="menu">
+            <a href="index.html">To-Do List</a>
+            <a href="notebook.html">Note Book</a>
+            <a href="history.html">Riwayat</a>
+        </div>
+    </div>
+    
+    <div id="main-content">
+        <header>
+            <h1>Note Book</h1>
+            <p>Catatan pribadi Anda</p>
+        </header>
+        <section id="notebook-section">
+            <textarea id="notebook-textarea" placeholder="Tulis catatan Anda di sini..."></textarea>
+            <button id="save-note-btn">Simpan Catatan</button>
+            <h2>Catatan yang Tersimpan:</h2>
+            <ul id="notes-list"></ul>
+        </section>
+    </div>
+    
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const sidebar = document.getElementById('sidebar');
+
+        // Add an event listener to toggle sidebar visibility
+        menuToggle.addEventListener('click', function() {
+            const isSidebarOpen = sidebar.style.transform === 'translateX(0px)';
+            if (isSidebarOpen) {
+                sidebar.style.transform = 'translateX(-200px)';
+            } else {
+                sidebar.style.transform = 'translateX(0px)';
+            }
+        });
+
+        // Ambil elemen penting
+        const notebookTextarea = document.getElementById('notebook-textarea');
+        const saveNoteBtn = document.getElementById('save-note-btn');
+        const notesList = document.getElementById('notes-list');
+
+        // Fungsi untuk memuat dan menampilkan catatan yang ada
+        function loadNotes() {
+            const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
+            notesList.innerHTML = ''; // Bersihkan daftar sebelum menambahkan
+            savedNotes.forEach((note, index) => {
+                const li = document.createElement('li');
+                li.textContent = note;
+                
+                // Tombol hapus untuk setiap catatan
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = 'Hapus';
+                deleteBtn.addEventListener('click', () => {
+                    deleteNote(index);
+                });
+                
+                li.appendChild(deleteBtn);
+                notesList.appendChild(li);
+            });
+        }
+
+        // Fungsi untuk menyimpan catatan baru
+        saveNoteBtn.addEventListener('click', () => {
+            const noteContent = notebookTextarea.value.trim();
+            if (!noteContent) {
+                alert('Catatan kosong tidak dapat disimpan.');
+                return;
+            }
+
+            const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
+            savedNotes.push(noteContent);
+            localStorage.setItem('notes', JSON.stringify(savedNotes));
+
+            notebookTextarea.value = ''; // Kosongkan textarea setelah simpan
+            loadNotes(); // Muat ulang daftar catatan
+            alert('Catatan berhasil disimpan!');
+        });
+
+        // Fungsi untuk menghapus catatan
+        function deleteNote(index) {
+            const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
+            savedNotes.splice(index, 1); // Hapus catatan berdasarkan index
+            localStorage.setItem('notes', JSON.stringify(savedNotes));
+            loadNotes(); // Muat ulang daftar catatan setelah dihapus
+        }
+
+        // Muat catatan saat halaman dimuat
+        window.onload = loadNotes;
+    </script>
+</body>
+</html>
