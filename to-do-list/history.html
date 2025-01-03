@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="src/icon.png" type="image/png">
+</head>
+<body>
+    <div id="sidebar">
+        <button id="menu-toggle">☰</button>
+        <div id="menu">
+            <a href="index.html">To-Do List</a>
+            <a href="notebook.html">Note Book</a>
+            <a href="history.html">Riwayat</a>
+        </div>
+    </div>
+    
+    <div id="main-content">
+        <header>
+            <h1>Riwayat To-Do List</h1>
+            <p>Daftar aktivitas yang telah selesai</p>
+        </header>
+        <section id="history-section">
+            <ul id="history-list">
+                <!-- Riwayat akan dimuat di sini -->
+            </ul>
+        </section>
+    </div>
+    
+    <script>
+        // Sidebar menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const sidebar = document.getElementById('sidebar');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = sidebar.style.transform === 'translateX(0px)';
+            sidebar.style.transform = isOpen ? 'translateX(-200px)' : 'translateX(0px)';
+        });
+
+        // Ambil elemen daftar riwayat
+        const historyList = document.getElementById('history-list');
+        
+        // Muat riwayat dari LocalStorage
+        const historyData = JSON.parse(localStorage.getItem('history')) || [];
+        
+        if (historyData.length === 0) {
+            const noHistoryMessage = document.createElement('p');
+            noHistoryMessage.textContent = 'Belum ada riwayat To-Do List.';
+            historyList.appendChild(noHistoryMessage);
+        } else {
+            historyData.forEach((entry) => {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${entry.date}</strong>: ${entry.todos.join(', ')}`;
+                historyList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
