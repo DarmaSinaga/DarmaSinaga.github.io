@@ -1,0 +1,17 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom CSS untuk efek tambahan */
+body {
+  scroll-behavior: smooth;
+}
+
+/* Efek hover untuk gambar di galeri */
+.gallery-item {
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.1);
+}

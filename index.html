@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Darmagustinos</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-900 text-white font-sans">
+  <!-- Navbar -->
+  <nav class="p-4 fixed w-full bg-gray-800 bg-opacity-90">
+    <div class="container mx-auto flex justify-between items-center">
+      <ul class="flex space-x-4">
+        <li><a href="#tentang" class="text-xl font-bold hover:text-gray-xl">Tentang</a></li>
+        <li><a href="#galeri" class="text-xl font-bold hover:text-gray-xl">Galeri</a></li>
+        <li><a href="#proyek" class="text-xl font-bold hover:text-gray-xl">Proyek & Blog</a></li>
+        <li><a href="#kontak" class="text-xl font-bold hover:text-gray-xl">Kontak</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Beranda -->
+  <section id="beranda" class="h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-gray-800 to-gray-900">
+    <img src="desaintanpajudul.png" alt="Foto Darma" class="w-32 h-32 rounded-full mb-4">
+    <h1 class="text-4xl font-bold">Darma Sinaga</h1>
+    <p class="text-xl text-gray-400">Tech Enthusiast | Guitarist | Business Explorer</p>
+  </section>
+
+  <!-- Tentang Saya -->
+  <section id="tentang" class="py-16 px-4">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center">Tentang Saya</h2>
+      <div class="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-8">
+        <div class="flex-1">
+          <p class="text-gray-400 leading-relaxed">
+            Halo! Saya Darma, seorang remaja yang memiliki minat besar di bidang teknologi, musik (khususnya gitar), dan bisnis. Saya selalu tertarik untuk mempelajari hal-hal baru dan mengembangkan diri. Saya percaya bahwa kombinasi kreativitas dan logika dapat menciptakan solusi yang inovatif.
+          </p>
+        </div>
+        <div class="flex-1 flex justify-center space-x-4">
+          <div class="text-center">
+            <i class="fas fa-laptop-code text-4xl text-blue-500"></i>
+            <p class="mt-2">Teknologi</p>
+          </div>
+          <div class="text-center">
+            <i class="fas fa-guitar text-4xl text-red-500"></i>
+            <p class="mt-2">Gitar</p>
+          </div>
+          <div class="text-center">
+            <i class="fas fa-chart-line text-4xl text-green-500"></i>
+            <p class="mt-2">Bisnis</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeri -->
+  <section id="galeri" class="py-16 px-4 bg-gray-800">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center">Galeri</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="relative overflow-hidden rounded-lg">
+          <img src="kamunama.jpg" alt="Soon." class="w-full h-full object-cover transform hover:scale-110 transition-transform">
+        </div>
+        <div class="relative overflow-hidden rounded-lg">
+          <img src="foto2.jpg" alt="Soon." class="w-full h-full object-cover transform hover:scale-110 transition-transform">
+        </div>
+        <div class="relative overflow-hidden rounded-lg">
+          <img src="foto3.jpg" alt="Soon." class="w-full h-full object-cover transform hover:scale-110 transition-transform">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyek & Blog -->
+  <section id="proyek" class="py-16 px-4">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center">Proyek & Blog</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-gray-800 p-6 rounded-lg">
+          <h3 class="text-xl font-bold mb-2">Proyek Teknologi</h3>
+          <p class="text-gray-400">Soon.</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-lg">
+          <h3 class="text-xl font-bold mb-2">Blog Musik</h3>
+          <p class="text-gray-400">Soon.</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-lg">
+          <h3 class="text-xl font-bold mb-2">Eksplorasi Bisnis</h3>
+          <p class="text-gray-400">Soon.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontak -->
+  <section id="kontak" class="py-16 px-4 bg-gray-800">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center">Kontak</h2>
+      <div class="flex flex-col items-center space-y-4">
+        <p class="text-gray-400">Hubungi saya melalui media sosial:</p>
+        <div class="flex space-x-4">
+          <a href="https://instagram.com/dstrongestpell" class="text-2xl hover:text-gray-400"><i class="fab fa-instagram"></i></a>
+        </div>
+        <form class="w-full max-w-md mt-8">
+          <input type="text" placeholder="Nama Anda" class="w-full p-2 mb-4 bg-gray-700 rounded">
+          <input type="email" placeholder="Email Anda" class="w-full p-2 mb-4 bg-gray-700 rounded">
+          <textarea placeholder="Pesan Anda" class="w-full p-2 mb-4 bg-gray-700 rounded"></textarea>
+          <button type="submit" class="w-full p-2 bg-blue-500 rounded hover:bg-blue-600">Kirim Pesan</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 text-center bg-gray-900">
+    <p class="text-gray-400">&copy; 2025 Darma Sinaga. All rights reserved.</p>
+  </footer>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <!-- Script JS -->
+  <script src="script.js"></script>
+</body>
+</html>
